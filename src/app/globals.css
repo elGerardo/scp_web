@@ -1,4 +1,10 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
 body {
+  font-size: 16px;
   margin: 0 auto;
 }
 
@@ -12,16 +18,33 @@ a {
 }
 
 .container {
-  margin: 0 auto; 
-  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 108rem;
 }
 
 .d-flex {
   display: flex;
 }
 
+.form-control {
+  border: 0.1rem solid #909090;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.mb-5 {
+  margin-bottom: 2.5rem;
+}
+
 .mr-4 {
-  margin-right: 10px;
+  margin-right: 1rem;
+}
+
+.mt-5 {
+  margin-top: 2.5rem;
 }
 
 .my-auto {
@@ -29,13 +52,13 @@ a {
 }
 
 .px-4 {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .py-3 {
-  padding-top: 7.5px;
-  padding-bottom: 7.5px;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .space-between {
@@ -43,7 +66,19 @@ a {
 }
 
 .shadow-bottom {
-  box-shadow: 1px 6px 16px -6px rgba(28,28,28,0.75);
-  -webkit-box-shadow: 1px 6px 16px -6px rgba(28,28,28,0.75);
-  -moz-box-shadow: 1px 6px 16px -6px rgba(28,28,28,0.75);
+  box-shadow: 0.1rem 0.6rem 1.6rem -0.6rem rgba(28, 28, 28, 0.75);
+  -webkit-box-shadow: 0.1rem 0.6rem 1.6rem -0.6rem rgba(28, 28, 28, 0.75);
+  -moz-box-shadow: 0.1rem 0.6rem 1.6rem -0.6rem rgba(28, 28, 28, 0.75);
+}
+
+.rounded-left {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.rounded-right {
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.rounded-0 {
+  border-radius: 0 0 0 0;
 }
