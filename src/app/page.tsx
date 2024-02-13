@@ -2,7 +2,7 @@
 import Dropdown from "@/components/dropdown";
 import Input from "@/components/input";
 import Button from "@/components/button/button";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { JsonViewer } from "@textea/json-viewer";
 import SCPService from "@/services/SCPService";
 
@@ -13,7 +13,7 @@ export default function Home() {
   //States
   const query = useRef();
   const [model, setModel] = useState("scp");
-  const [json, setJson] = useState({})
+  const [json, setJson] = useState({});
 
   //Handlers
   const handleChange = (event: any) => {
@@ -21,30 +21,31 @@ export default function Home() {
   };
 
   const handleOnClickSend = async () => {
-    let findText = ''
-    if(query.current){
-      if(query.current['value'] !== ''){
-        findText = `/${query.current['value']}`
-  
-        if(query.current['value'][0] === '?'){
-          findText = query.current['value']
+    let findText = "";
+    if (query.current) {
+      if (query.current["value"] !== "") {
+        findText = `/${query.current["value"]}`;
+
+        if (query.current["value"][0] === "?") {
+          findText = query.current["value"];
         }
       }
     }
 
-    const url = `${API_BASE_URL}${model}${findText}`
-    const response = await SCPService.get(url)
-    setJson(response)
-  }
+    const url = `${API_BASE_URL}${model}${findText}`;
+    const response = await SCPService.get(url);
+    setJson(response);
+  };
 
-  useState(() => {
-    async function init(){
-      const response = await SCPService.get(`${API_BASE_URL}${model}`)
-      setJson(response)
+  useEffect(() => {
+    async function init() {
+      const response = await SCPService.get(`${API_BASE_URL}${model}`);
+      setJson(response);
     }
 
-    init()
-  })
+    init();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <main className="container">
@@ -55,18 +56,27 @@ export default function Home() {
           defaultValue={API_BASE_URL}
           disabled
         />
-        <Dropdown onChange={handleChange} defaultValue={model} className="rounded-0">
+        <Dropdown
+          onChange={handleChange}
+          defaultValue={model}
+          className="rounded-0 w-50"
+        >
           <Dropdown.Item value="scp">scp</Dropdown.Item>
           <Dropdown.Item value="interviews">interviews</Dropdown.Item>
           <Dropdown.Item value="category">category</Dropdown.Item>
         </Dropdown>
         <Input
-          className="rounded-right"
+          className="rounded-0"
           type="text"
           inputRef={query}
           placeholder="049 or ?page=10&limit=1"
         />
-        <Button onClick={() => handleOnClickSend()}>Send</Button>
+        <Button
+          className="rounded-right px-4 font-size-3"
+          onClick={() => handleOnClickSend()}
+        >
+          Send
+        </Button>
       </div>
       <JsonViewer
         rootName={false}

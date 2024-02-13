@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -13,8 +18,32 @@ a {
   text-decoration: none;
 }
 
+p {
+  font-weight: none;
+  font-style: none;
+  font-display: none;
+  text-decoration: none;
+}
+
 .bg-dark {
   background-color: #1C1C1C;
+}
+
+.bg-gray {
+  background-color: #343A40;
+}
+
+.btn-primary {
+  color: #FFFFFF;
+  cursor: pointer;
+  background-color: #343A40;
+  border: none;
+  font-size: 1.6rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #1D2124;
 }
 
 .container {
@@ -24,6 +53,18 @@ a {
   max-width: 108rem;
 }
 
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
 .d-flex {
   display: flex;
 }
@@ -31,8 +72,26 @@ a {
 .form-control {
   border: 0.1rem solid #909090;
   border-radius: 0.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
   padding: 0.75rem;
   width: 100%;
+}
+
+.form-control:disabled {
+  background-color: #E9ECEF;
+}
+
+.form-control:focus {
+  outline: 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mt-5 {
+  margin-top: 2.5rem;
 }
 
 .mb-5 {
@@ -51,9 +110,30 @@ a {
   margin: auto 0;
 }
 
+.position-sticky {
+  position: sticky;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.pr-1 {
+  padding-right: 0.25rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .py-3 {
@@ -71,6 +151,10 @@ a {
   -moz-box-shadow: 0.1rem 0.6rem 1.6rem -0.6rem rgba(28, 28, 28, 0.75);
 }
 
+.rounded {
+  border-radius: 0.5rem;
+}
+
 .rounded-left {
   border-radius: 0.5rem 0 0 0.5rem;
 }
@@ -81,4 +165,32 @@ a {
 
 .rounded-0 {
   border-radius: 0 0 0 0;
+}
+
+.text-black {
+  color: #1C1C1C;
+}
+
+.text-gray {
+  color: #343A40;
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-100 {
+  width: 100%;
 }
