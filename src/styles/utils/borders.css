@@ -1,0 +1,15 @@
+.rounded {
+    border-radius: 0.5rem !important;
+}
+
+.rounded-left {
+    border-radius: 0.5rem 0 0 0.5rem !important;
+}
+
+.rounded-right {
+    border-radius: 0 0.5rem 0.5rem 0 !important;
+}
+
+.rounded-0 {
+    border-radius: 0 0 0 0 !important;
+}

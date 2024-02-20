@@ -1,0 +1,12 @@
+.btn-primary {
+    color: #FFFFFF;
+    cursor: pointer;
+    background-color: #343A40;
+    border: none;
+    font-size: 1.6rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #1D2124;
+}

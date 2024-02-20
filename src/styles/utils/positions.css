@@ -1,0 +1,9 @@
+.position-fixed {
+    position: fixed;
+    height: auto;
+    z-index: 1;
+}
+
+.position-relative {
+    position: relative;
+}

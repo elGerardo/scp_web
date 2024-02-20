@@ -1,0 +1,19 @@
+table {
+    margin: 0;
+    padding: 0;
+    border-collapse: none;
+    border-spacing: 0;
+}
+
+table thead {
+    background-color: #F2F2F2;
+}
+
+table td {
+    border-bottom: 0.25rem solid #EFF0F3;
+}
+
+table thead th {
+    padding: 0.5rem;
+    text-align: left;
+}
