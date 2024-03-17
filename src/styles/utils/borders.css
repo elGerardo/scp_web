@@ -2,6 +2,10 @@
     border-radius: 0.5rem !important;
 }
 
+.rounded-sm {
+    border-radius: 0.25rem !important;
+}
+
 .rounded-left {
     border-radius: 0.5rem 0 0 0.5rem !important;
 }

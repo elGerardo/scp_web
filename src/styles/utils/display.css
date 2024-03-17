@@ -1,3 +1,7 @@
+.align-items-center {
+    align-items: center;
+}
+
 .d-block {
     display: block;
 }
@@ -14,11 +18,18 @@
     display: flex;
 }
 
+.justify-content-center {
+    justify-content: center;
+}
+
 .justify-content-right {
     justify-content: right;
 }
 
 .space-between {
     justify-content: space-between;
-  }
-  
+}
+
+.flex-column {
+    flex-direction: column;
+}

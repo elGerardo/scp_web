@@ -4,12 +4,12 @@ const formatTypes = {
 
 export default function DropdownItem({
   children,
-  type,
+  kind,
   onClick,
   className = ''
 }: {
-  children: React.ReactNode;
-  type?: "primary";
+  children?: React.ReactNode;
+  kind?: "primary";
   onClick?: (event: any) => void;
   className?: string;
 }) {
@@ -20,7 +20,7 @@ export default function DropdownItem({
   };
   return (
     <button
-      className={`${className} ${type === undefined ? "btn-primary" : formatTypes[type]}`}
+      className={`${className} ${kind === undefined ? "btn-primary" : formatTypes[kind]}`}
       onClick={(event) => handleOnClick(event)}
     >
       {children}

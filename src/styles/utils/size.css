@@ -13,6 +13,10 @@
     width: 50%;
 }
 
+.Iw-50 {
+    width: 50% !important;
+}
+
 .w-75 {
     width: 75%;
 }

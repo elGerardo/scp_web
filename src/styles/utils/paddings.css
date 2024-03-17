@@ -6,6 +6,10 @@
     padding: 1.5rem;
 }
 
+.p-4 {
+    padding: 2.0rem;
+}
+
 .pl-1 {
     padding-left: 0.25rem;
 }
@@ -15,8 +19,8 @@
 }
 
 .px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2.0rem;
+    padding-right: 2.0rem;
 }
 
 .py-1 {
