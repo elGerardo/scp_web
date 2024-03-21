@@ -2,7 +2,7 @@ const formatTypes = {
   primary: "btn-primary",
 };
 
-export default function DropdownItem({
+export default function Button({
   children,
   kind,
   onClick,

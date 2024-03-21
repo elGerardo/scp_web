@@ -6,9 +6,9 @@ export default function Input({
   value,
   inputRef,
   placeholder = "",
-  type = "text",
+  type = "text"  ,
 }: {
-  type?: string;
+  type?: "text" | "number";
   disabled?: boolean;
   required?: boolean;
   value?: string;
@@ -22,7 +22,7 @@ export default function Input({
       {...(value !== undefined && { value })}
       {...(inputRef !== undefined && { ref: inputRef })}
       placeholder={placeholder}
-      className={`${className} form-control`}
+      className={`${className}`}
       defaultValue={defaultValue}
       type={type}
       disabled={disabled}

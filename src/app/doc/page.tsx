@@ -6,28 +6,28 @@ export default function Doc() {
   return (
     <>
       <div className="container">
-        <div className="w-100 mb-5">
-          <h2 className="m-0">Content</h2>
-          <Link href="#information" className="text-black mr-4">
+        <div className="w-full mb-5">
+          <h2 className="mt-5 text-lg font-semibold">Content</h2>
+          <Link href="#information" className="mr-4 secondary">
             Information
           </Link>
-          <Link href="#fetching" className="text-black mr-4">
+          <Link href="#fetching" className="mr-4 secondary">
             Fetching
           </Link>
-          <Link href="#scp" className="text-black mr-4">
+          <Link href="#scp" className="mr-4 secondary">
             SCP
           </Link>
-          <Link href="#categories" className="text-black mr-4">
+          <Link href="#categories" className="mr-4 secondary">
             Categories
           </Link>
-          <Link href="#interviews" className="text-black mr-4">
+          <Link href="#interviews" className="mr-4 secondary">
             Interviews
           </Link>
         </div>
       </div>
-      <div className="container justify-content-right position-relative mt-5">
-        <div className="w-100">
-          <h2 className="m-0">Information</h2>
+      <div className="container justify-start relative mt-5">
+        <div className="w-full">
+          <h2 className="m-0 text-lg font-semibold">Information</h2>
           <p className="m-0">
             {/* eslint-disable react/no-unescaped-entities */}
             This API was done with the intention to be a little project to
@@ -39,28 +39,28 @@ export default function Doc() {
           </p>
           <div
             id="information"
-            className="bg-gray rounded text-white py-1 px-4"
+            className="bg-gray-600 rounded-sm text-white py-1 px-4"
           >
             <p>URL Endpoint Structure</p>
             <p>BaseUrl: {process.env.NEXT_PUBLIC_API_BASE_URL}</p>
             <p>Model: scp</p>
             <p>Params: ?limit=10</p>
-            <p>{`${process.env.NEXT_PUBLIC_API_BASE_URL}scp?limit=10`}</p>
+            <p>{`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/scp?limit=10`}</p>
           </div>
           <div
             id="fetching"
-            className="bg-gray rounded text-white py-1 px-4 mt-5"
+            className="bg-gray-600 rounded-sm text-white py-1 px-4 mt-5 mb-5"
           >
-            <p>Fetching to an Endpoint</p>
+            <p className="">Fetching to an Endpoint</p>
             <p>
               return fetch(`{process.env.NEXT_PUBLIC_API_BASE_URL}
-              scp?limit=10`).then((response) ={">"} response.json())
+              /v1/scp?limit=10`).then((response) ={">"} response.json())
             </p>
           </div>
           {docData.map(({ id, model, description, methods, data }, index) => {
             return (
-              <div key={`${index}-header`} className="mt-5" id={id}>
-                <h3 className="m-0 text-black">{model}</h3>
+              <div key={`${index}-header`} className="mb-16" id={id}>
+                <h3 className="m-0 text-lg font-semibold">{model}</h3>
                 <p className="m-0 p-0">{description}</p>
                 <p className="m-0 p-0">
                   Avilable Methods [{methods.join(", ")}]
@@ -81,7 +81,7 @@ export default function Doc() {
                           <td className="w-50 p-3">{description}</td>
                           <td className="w-25">
                             {params.length > 0 && (
-                              <Table className="w-100">
+                              <Table className="w-full !border-b-0">
                                 <thead>
                                   <tr>
                                     <th>Name</th>
@@ -97,13 +97,15 @@ export default function Doc() {
                                           key={`${index}-params-scp`}
                                           className="bg-info"
                                         >
-                                          <td className="text-center">
+                                          <td className="text-center !border-b-0">
                                             {name}
                                           </td>
-                                          <td className="text-center">
+                                          <td className="text-center !border-b-0">
                                             {datatype}
                                           </td>
-                                          <td className="pl-1">{example}</td>
+                                          <td className="pl-1 !border-b-0">
+                                            {example}
+                                          </td>
                                         </tr>
                                       );
                                     }

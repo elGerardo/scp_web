@@ -3,7 +3,7 @@ export default function Form({
   children,
   onSubmit,
 }: {
-  className: string;
+  className?: string;
   children?: React.ReactNode;
   onSubmit?: (event: any) => void;
 }) {

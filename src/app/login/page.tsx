@@ -1,7 +1,7 @@
 "use client";
-import Form from "@/components/form/form";
+import Form from "@/components/form";
 import Input from "@/components/input";
-import Button from "@/components/button/button";
+import Button from "@/components/button";
 import Image from "next/image";
 import LogoBlack from "/public/logo_black.png";
 import { FormEvent, useRef } from "react";
@@ -28,11 +28,11 @@ export default function Login() {
       callbackUrl: "/dashboard",
     });
   };
-
+ 
   return (
     <div className="container">
       <Form
-        className="d-flex flex-column justify-content-center align-items-center"
+        className="flex flex-col justify-center items-center"
         onSubmit={(event) => handleOnSubmit(event)}
       >
         <Image src={LogoBlack} height={75} alt="logo_scp" className="mt-5" />

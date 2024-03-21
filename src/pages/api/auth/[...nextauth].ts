@@ -13,6 +13,7 @@ const authOptions: AuthOptions = {
             return { ...token, ...user };
         },
         session: async ({ session, token }: { session: any, token: any }) => {
+            console.log("session")
             session.user = token;
             return session;
         },

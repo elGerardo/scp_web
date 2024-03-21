@@ -16,7 +16,7 @@ const docData: Array<IDoc> = [
                 params: [
                     {
                         name: "limit",
-                        datatype: "integer",
+                        datatype: "number",
                         example: "v1/scp?limit=10"
                     }
                 ]
@@ -41,7 +41,7 @@ const docData: Array<IDoc> = [
                 params: [
                     {
                         name: 'limit',
-                        datatype: 'integer',
+                        datatype: 'number',
                         example: 'v1/interviews?limit=10'
                     }
                 ]
@@ -66,7 +66,7 @@ const docData: Array<IDoc> = [
                 params: [
                     {
                         name: "limit",
-                        datatype: "integer",
+                        datatype: "number",
                         example: "v1/categories?limit=10"
                     }
                 ]
@@ -75,6 +75,26 @@ const docData: Array<IDoc> = [
                 endpoint: "v1/categories/{{category_name}}",
                 description: "Get information of a certain Category",
                 params: []
+            }
+        ]
+    },
+    {
+        id: 'enemies',
+        model: 'Enemies',
+        description: 'Information about an SCP"s enemies',
+        example: `${BASE_URL}categories`,
+        methods: ['GET'],
+        data: [
+            {
+                endpoint: "v1/enemies/{{scp_id}}",
+                description: "Get All SCP's Enemies",
+                params: [
+                    {
+                        name: "limit",
+                        datatype: "number",
+                        example: "v1/enemies/{{scp_id}}?limit=10"
+                    }
+                ]
             }
         ]
     }
