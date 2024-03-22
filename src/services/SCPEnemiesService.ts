@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from "axios"
 
-export default class CategoryService {
-    public static async store(token: string, data: object) {
+export default class SCPEnemiesService {
+    public static async store(token: string, scp_id: string, scp_enemy_id: string) {
         let response: any
         try {
-            response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/category`, data, {
+            response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/enemies/${scp_id}/enemy/${scp_enemy_id}`, {}, {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`,
@@ -18,10 +18,10 @@ export default class CategoryService {
         return { status: response.status }
     }
 
-    public static async getWithIds(token: string) {
+    public static async destroy(token: string, scp_id: string, scp_enemy_id: string) {
         let response: any
         try {
-            response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/category_ids`, {
+            response = await axios.delete(`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/enemies/${scp_id}/enemy/${scp_enemy_id}`, {
                 headers: {
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`,
@@ -32,6 +32,7 @@ export default class CategoryService {
             if (error['response']['status'] === 500) return { message: "Server error" }
         }
 
-        return { data: response.data.data }
+        return { status: response.status }
     }
+
 }

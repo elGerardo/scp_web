@@ -1,5 +1,6 @@
 const formatTypes = {
   primary: "btn-primary",
+  secondary: "btn-secondary",
 };
 
 export default function Button({
@@ -9,7 +10,7 @@ export default function Button({
   className = ''
 }: {
   children?: React.ReactNode;
-  kind?: "primary";
+  kind?: "primary" | "secondary";
   onClick?: (event: any) => void;
   className?: string;
 }) {
@@ -20,7 +21,7 @@ export default function Button({
   };
   return (
     <button
-      className={`${className} ${kind === undefined ? "btn-primary" : formatTypes[kind]}`}
+      className={`${kind === undefined ? "btn-primary" : formatTypes[kind]} ${className} `}
       onClick={(event) => handleOnClick(event)}
     >
       {children}

@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import { Tab } from "@headlessui/react";
 
 function classNames(...classes: any) {
@@ -9,7 +8,9 @@ function classNames(...classes: any) {
 export default function Tabs({
   options,
   onClick,
+  className = "",
 }: {
+  className?: string;
   options: string[];
   onClick?: (event: any) => void;
 }) {
@@ -18,7 +19,7 @@ export default function Tabs({
   };
 
   return (
-    <div className="w-full max-w-md px-2 py-16 sm:px-0">
+    <div className={`w-full max-w-md px-2 sm:px-0 ${className}`}>
       <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-gray-600 p-1">
           {options.map((category) => (

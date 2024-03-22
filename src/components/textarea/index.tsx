@@ -1,4 +1,5 @@
 export default function Textarea({
+  id,
   rows = 4,
   required = false,
   value = "",
@@ -7,6 +8,7 @@ export default function Textarea({
   onChange,
   inputRef,
 }: {
+  id?: string;
   rows?: number;
   required?: boolean;
   value?: string;
@@ -26,7 +28,10 @@ export default function Textarea({
     placeholder,
     className,
     onChange,
-    ...(onChange !== undefined && { onChange: (data: any) => handleOnChange(data) }),
+    ...(id !== undefined && { id }),
+    ...(onChange !== undefined && {
+      onChange: (data: any) => handleOnChange(data),
+    }),
     ...(inputRef !== undefined && { ref: inputRef }),
   };
   return <textarea {..._props} />;

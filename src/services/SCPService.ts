@@ -25,7 +25,25 @@ export default class SCPService {
             if (error['response']['status'] === 404) return { message: error['response']['data']['message'] }
             if (error['response']['status'] === 500) return { message: "Server error" }
         }
-        
+
+        return { data: response.data.data }
+    }
+
+    public static async getWithIds(token: string) {
+        let response: any
+        try {
+            response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/scp_ids`, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                    mode: "cors"
+                }
+            })
+        } catch (error: any) {
+            if (error['response']['status'] === 500) return { message: "Server error" }
+
+        }
+
         return { data: response.data.data }
     }
 }

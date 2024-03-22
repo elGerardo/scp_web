@@ -1,4 +1,5 @@
 export default function Input({
+  id,
   disabled = false,
   required = false,
   className = "",
@@ -8,6 +9,7 @@ export default function Input({
   placeholder = "",
   type = "text"  ,
 }: {
+  id?: string
   type?: "text" | "number";
   disabled?: boolean;
   required?: boolean;
@@ -19,6 +21,7 @@ export default function Input({
 }) {
   return (
     <input
+      {...(id !== undefined && { id })}
       {...(value !== undefined && { value })}
       {...(inputRef !== undefined && { ref: inputRef })}
       placeholder={placeholder}

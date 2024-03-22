@@ -5,3 +5,11 @@
 .btn-primary:hover {
     background-color: #1D2124;
 }
+
+.btn-secondary {
+    @apply text-black border-2 border-slate-200 bg-white rounded
+}
+
+.btn-secondary:hover {
+    @apply bg-slate-50
+}
