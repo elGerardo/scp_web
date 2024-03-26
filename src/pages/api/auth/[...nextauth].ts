@@ -13,7 +13,6 @@ const authOptions: AuthOptions = {
             return { ...token, ...user };
         },
         session: async ({ session, token }: { session: any, token: any }) => {
-            console.log("session")
             session.user = token;
             return session;
         },
@@ -27,8 +26,6 @@ const authOptions: AuthOptions = {
             if (credentials == null) return null
             const token = credentials["token"]
             const user = { id: "0", email: credentials["email"] }
-            //console.log(credentials["token"])
-            //const user = { id: "0", email: "test@mail.com" }
             if (user) {
                 return { ...user, token }
             }

@@ -1,28 +1,30 @@
 import Form from "@/components/form";
 import Input from "@/components/input";
 import Button from "@/components/button";
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import Textarea from "@/components/textarea";
 import ListBox from "@/components/listbox";
+import Spinner from "@/components/spinner";
 
 export default function SCP({
   isRequesting = false,
   onSubmit,
   categoryCatalog = [{ value: null, label: "Select a Category..." }],
 }: {
-  isRequesting?: boolean
+  isRequesting?: boolean;
   categoryCatalog?: Array<any>;
   onSubmit?: (event: object) => void;
 }) {
-  const id = useRef();
-  const name = useRef();
+  const id: any = useRef();
+  const name: any = useRef();
+  const picture: any = useRef();
   const [description, setDescription] = useState("");
-  const picture = useRef();
+  const [categoryId, setCategoryId] = useState(null);
 
   const handleOnSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (onSubmit) {
-      onSubmit({
+      const result: any = onSubmit({
         ...(id.current !== undefined
           ? { id: id.current["value"] }
           : { id: null }),
@@ -32,9 +34,22 @@ export default function SCP({
         ...(picture.current !== undefined
           ? { picture: picture.current["value"] }
           : { picture: null }),
+        category_id: categoryId,
         description,
       });
+
+      if (result) {
+        id.current["value"] = "";
+        name.current["value"] = "";
+        picture.current["value"] = "";
+        setDescription("");
+        setCategoryId(null);
+      }
     }
+  };
+
+  const handleOnChangeCategory = (data: any) => {
+    setCategoryId(data.value);
   };
 
   const handleOnChangeDescription = (
@@ -82,7 +97,10 @@ export default function SCP({
         }
       />
       <label>Categories</label>
-      <ListBox data={categoryCatalog} />
+      <ListBox
+        data={categoryCatalog}
+        onChange={(data: object) => handleOnChangeCategory(data)}
+      />
       <label className="mt-4" htmlFor="scp_picture_url">
         SCP Picture URL
       </label>
@@ -94,9 +112,13 @@ export default function SCP({
         inputRef={picture}
       />
       <div>
-        <Button kind="primary" className="w-2/12 py-2">
-          Save
-        </Button>
+        {!isRequesting ? (
+          <Button kind="primary" className="w-2/12 py-2">
+            Save
+          </Button>
+        ) : (
+          <Spinner className="ml-10" />
+        )}
       </div>
     </Form>
   );

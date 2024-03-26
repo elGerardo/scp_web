@@ -14,8 +14,7 @@ import InterviewService from "@/services/InterviewService";
 import SCPEnemiesService from "@/services/SCPEnemiesService";
 
 export default function Dashboard() {
-  const session = useSession();
-  console.log(session);
+  const session: any = useSession();
 
   const [isLoadingPage, setIsLoadingPage] = useState(true);
   const [isRequesting, setIsRequesting] = useState(false);
@@ -31,14 +30,23 @@ export default function Dashboard() {
     setCurrentTab(data);
   };
 
-  const handleOnSubmitSCP = (data: object) => {
-    console.log(data);
+  const handleOnSubmitSCP = async (data: object) => {
+    setIsRequesting(true);
+    const response = await SCPService.store(
+      session.data.user.token,
+      data
+    );
+    setIsRequesting(false);
+
+    if (response.status === 201) return true;
+
+    return false;
   };
 
   const handleOnSubmitCategory = async (data: object) => {
     setIsRequesting(true);
     const response = await CategoryService.store(
-      "33|7iA7fOaMS4RpTfmQ3MiVvf37PSTi5oTBl9gqMNzK96b8cce8",
+      session.data.user.token,
       data
     );
     setIsRequesting(false);
@@ -51,7 +59,7 @@ export default function Dashboard() {
   const handleOnSubmitInterview = async (data: object) => {
     setIsRequesting(true);
     const response = await InterviewService.store(
-      "33|7iA7fOaMS4RpTfmQ3MiVvf37PSTi5oTBl9gqMNzK96b8cce8",
+      session.data.user.token,
       data
     );
     setIsRequesting(false);
@@ -66,13 +74,13 @@ export default function Dashboard() {
     let response;
     if (data.submitType === "attach") {
       response = await SCPEnemiesService.store(
-        "33|7iA7fOaMS4RpTfmQ3MiVvf37PSTi5oTBl9gqMNzK96b8cce8",
+        session.data.user.token,
         data.scpId,
         data.scpEnemyId
       );
     } else {
       response = await SCPEnemiesService.destroy(
-        "33|7iA7fOaMS4RpTfmQ3MiVvf37PSTi5oTBl9gqMNzK96b8cce8",
+        session.data.user.token,
         data.scpId,
         data.scpEnemyId
       );
@@ -86,9 +94,12 @@ export default function Dashboard() {
 
   useEffect(
     () => {
-      //if (session.data === null) redirect("login");
+      if (session.data === null) redirect("login");
       async function init() {
-        const token = "33|7iA7fOaMS4RpTfmQ3MiVvf37PSTi5oTBl9gqMNzK96b8cce8";
+        if(session.data == null) return
+        if(session.data.user == null) return
+        if(session.data.user == null) return
+        const token = session.data.user.token;
         const categoryResponse = await CategoryService.getWithIds(token);
         const categoryData = categoryResponse.data;
         categoryData.unshift({ label: "Select a Category...", value: null });
@@ -104,7 +115,7 @@ export default function Dashboard() {
       init();
     },
     [
-      /*session.data*/
+      session.data
     ]
   );
 
