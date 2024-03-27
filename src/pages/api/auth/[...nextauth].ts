@@ -2,6 +2,7 @@ import NextAuth, { AuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 
 const authOptions: AuthOptions = {
+    secret: process.env.NEXT_PUBLIC_SECRET,
     pages: {
         signIn: '/dashboard/login',
     },

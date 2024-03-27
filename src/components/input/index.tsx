@@ -10,7 +10,7 @@ export default function Input({
   type = "text"  ,
 }: {
   id?: string
-  type?: "text" | "number";
+  type?: "text" | "number" | "password";
   disabled?: boolean;
   required?: boolean;
   value?: string;
