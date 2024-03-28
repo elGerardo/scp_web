@@ -72,12 +72,12 @@ const docData: Array<IDoc> = [
                     {
                         name: "searchBy",
                         datatype: "json",
-                        example: 'v1/scp?searchBy={"field":"scp_id","value":"49"}'
+                        example: 'v1/interviews?searchBy={"field":"scp_id","value":"49"}'
                     },
                     {
                         name: "orderBy",
                         datatype: "json",
-                        example: 'v1/scp?orderBy={"field":"scp_id","order":"asc or desc"}'
+                        example: 'v1/interviews?orderBy={"field":"scp_id","order":"asc or desc"}'
                     },
                 ]
             },
@@ -112,12 +112,12 @@ const docData: Array<IDoc> = [
                     {
                         name: "searchBy",
                         datatype: "json",
-                        example: 'v1/scp?searchBy={"field":"name","value":"Euclid"}'
+                        example: 'v1/categories?searchBy={"field":"name","value":"Euclid"}'
                     },
                     {
                         name: "orderBy",
                         datatype: "json",
-                        example: 'v1/scp?orderBy={"field":"name","order":"asc or desc"}'
+                        example: 'v1/categories?orderBy={"field":"name","order":"asc or desc"}'
                     },
 
                 ]
@@ -143,27 +143,27 @@ const docData: Array<IDoc> = [
                     {
                         name: "limit",
                         datatype: "number",
-                        example: "v1/scp?limit=10"
+                        example: "v1/enemies?limit=10"
                     },
                     {
                         name: "page",
                         datatype: "number",
-                        example: "v1/scp?page=10"
+                        example: "v1/enemies?page=10"
                     },
                     {
                         name: "searchBy",
                         datatype: "json",
-                        example: 'v1/scp?searchBy={"field":"scp","value":"49"}'
+                        example: 'v1/enemies?searchBy={"field":"scp","value":"49"}'
                     },
                     {
                         name: "orderBy",
                         datatype: "json",
-                        example: 'v1/scp?orderBy={"field":"scp","order":"asc or desc"}'
+                        example: 'v1/enemies?orderBy={"field":"scp","order":"asc or desc"}'
                     },
                     {
                         name: "between",
                         datatype: "array",
-                        example: 'v1/scp?between=["1","100"]'
+                        example: 'v1/enemies?between=["1","100"]'
                     },
                 ]
             },
