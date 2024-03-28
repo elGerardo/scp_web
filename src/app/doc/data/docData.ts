@@ -18,7 +18,27 @@ const docData: Array<IDoc> = [
                         name: "limit",
                         datatype: "number",
                         example: "v1/scp?limit=10"
-                    }
+                    },
+                    {
+                        name: "page",
+                        datatype: "number",
+                        example: "v1/scp?page=10"
+                    },
+                    {
+                        name: "searchBy",
+                        datatype: "json",
+                        example: 'v1/scp?searchBy={"field":"scp","value":"49"}'
+                    },
+                    {
+                        name: "orderBy",
+                        datatype: "json",
+                        example: 'v1/scp?orderBy={"field":"scp","order":"asc or desc"}'
+                    },
+                    {
+                        name: "between",
+                        datatype: "array",
+                        example: 'v1/scp?between=["1","100"]'
+                    },
                 ]
             },
             {
@@ -43,7 +63,22 @@ const docData: Array<IDoc> = [
                         name: 'limit',
                         datatype: 'number',
                         example: 'v1/interviews?limit=10'
-                    }
+                    },
+                    {
+                        name: "page",
+                        datatype: "number",
+                        example: "v1/interviews?page=10"
+                    },
+                    {
+                        name: "searchBy",
+                        datatype: "json",
+                        example: 'v1/scp?searchBy={"field":"scp_id","value":"49"}'
+                    },
+                    {
+                        name: "orderBy",
+                        datatype: "json",
+                        example: 'v1/scp?orderBy={"field":"scp_id","order":"asc or desc"}'
+                    },
                 ]
             },
             {
@@ -68,7 +103,23 @@ const docData: Array<IDoc> = [
                         name: "limit",
                         datatype: "number",
                         example: "v1/categories?limit=10"
-                    }
+                    },
+                    {
+                        name: "page",
+                        datatype: "number",
+                        example: "v1/categories?page=10"
+                    },
+                    {
+                        name: "searchBy",
+                        datatype: "json",
+                        example: 'v1/scp?searchBy={"field":"name","value":"Euclid"}'
+                    },
+                    {
+                        name: "orderBy",
+                        datatype: "json",
+                        example: 'v1/scp?orderBy={"field":"name","order":"asc or desc"}'
+                    },
+
                 ]
             },
             {
@@ -86,15 +137,40 @@ const docData: Array<IDoc> = [
         methods: ['GET'],
         data: [
             {
-                endpoint: "v1/enemies/{{scp_id}}",
-                description: "Get All SCP's Enemies",
+                endpoint: "v1/enemies",
+                description: "Get All SCPs with Enemies",
                 params: [
                     {
                         name: "limit",
                         datatype: "number",
-                        example: "v1/enemies/{{scp_id}}?limit=10"
-                    }
+                        example: "v1/scp?limit=10"
+                    },
+                    {
+                        name: "page",
+                        datatype: "number",
+                        example: "v1/scp?page=10"
+                    },
+                    {
+                        name: "searchBy",
+                        datatype: "json",
+                        example: 'v1/scp?searchBy={"field":"scp","value":"49"}'
+                    },
+                    {
+                        name: "orderBy",
+                        datatype: "json",
+                        example: 'v1/scp?orderBy={"field":"scp","order":"asc or desc"}'
+                    },
+                    {
+                        name: "between",
+                        datatype: "array",
+                        example: 'v1/scp?between=["1","100"]'
+                    },
                 ]
+            },
+            {
+                endpoint: "v1/enemies/{{scp_id}}",
+                description: "Get All SCP's Enemies",
+                params: []
             }
         ]
     }

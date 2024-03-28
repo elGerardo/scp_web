@@ -5,9 +5,11 @@ import { Listbox, Transition } from "@headlessui/react";
 export default function Example({
   data,
   onChange,
+  className
 }: {
   data: Array<{ value: string | null; label: string }>;
   onChange?: (event: any) => void;
+  className?: string;
 }) {
   const [selected, setSelected] = useState(data[0]);
   const handleOnChangeSelected = (data: any) => {
@@ -21,8 +23,8 @@ export default function Example({
         value={selected}
         onChange={(data: any) => handleOnChangeSelected(data)}
       >
-        <div className="relative mt-1 !border-slate-200">
-          <Listbox.Button className="rounded cursor-pointer relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left sm:text-sm border-2 border-slate-200">
+        <div className="relative !border-slate-200">
+          <Listbox.Button className={`rounded cursor-pointer relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left border-2 border-slate-200 ${className}`}>
             <span className="block truncate">{selected.label}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"></span>
           </Listbox.Button>

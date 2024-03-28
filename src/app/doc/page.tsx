@@ -77,9 +77,9 @@ export default function Doc() {
                     {data.map(({ endpoint, description, params }, index) => {
                       return (
                         <tr key={`${index}-data-scp`}>
-                          <td className="w-25 p-3">{endpoint}</td>
-                          <td className="w-50 p-3">{description}</td>
-                          <td className="w-25">
+                          <td className="p-3">{endpoint}</td>
+                          <td className="p-3">{description}</td>
+                          <td>
                             {params.length > 0 && (
                               <Table className="w-full !border-b-0">
                                 <thead>
@@ -95,15 +95,15 @@ export default function Doc() {
                                       return (
                                         <tr
                                           key={`${index}-params-scp`}
-                                          className="bg-info"
+                                          className={`bg-info`}
                                         >
-                                          <td className="text-center !border-b-0">
+                                          <td className={`text-center ${index + 1 === params.length && '!border-b-0'}`}>
                                             {name}
                                           </td>
-                                          <td className="text-center !border-b-0">
+                                          <td className={`text-center ${index + 1 === params.length && '!border-b-0'}`}>
                                             {datatype}
                                           </td>
-                                          <td className="pl-1 !border-b-0">
+                                          <td className={`pl-1 ${index + 1 === params.length && '!border-b-0'}`}>
                                             {example}
                                           </td>
                                         </tr>

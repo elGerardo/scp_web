@@ -5,7 +5,7 @@ import Button from "@/components/button";
 import { useEffect, useRef, useState } from "react";
 import { JsonViewer } from "@textea/json-viewer";
 import SCPService from "@/services/SCPService";
-import UserService from "@/services/UserService";
+import Listbox from "@/components/listbox";
 
 export default function Home() {
   //Environments
@@ -17,8 +17,8 @@ export default function Home() {
   const [json, setJson] = useState({});
 
   //Handlers
-  const handleChange = (event: any) => {
-    setModel(event.target.value);
+  const handleChange = (data: any) => {
+    setModel(data["value"]);
   };
 
   const handleOnClickSend = async () => {
@@ -52,22 +52,23 @@ export default function Home() {
     <main className="container">
       <div className="flex mt-5 mb-5">
         <Input
-          className="w-2/6 rounded-none rounded-l"
+          className="w-full rounded-none rounded-l border-r-0"
           type="text"
           defaultValue={`${API_BASE_URL}/v1`}
           disabled
         />
-        <Dropdown
-          onChange={handleChange}
-          defaultValue={model}
-          className="w-3/12 rounded-none !border-0 !border-t-2 !border-b-2 !border-r-2"
-        >
-          <Dropdown.Item value="scp">scp</Dropdown.Item>
-          <Dropdown.Item value="interviews">interviews</Dropdown.Item>
-          <Dropdown.Item value="category">category</Dropdown.Item>
-        </Dropdown>
+        <Listbox
+          onChange={(data: object) => handleChange(data)}
+          className="!rounded-none"
+          data={[
+            { label: "scp", value: "scp" },
+            { label: "interviews", value: "interviews" },
+            { label: "category", value: "category" },
+            { label: "enemies", value: "enemies" },
+          ]}
+        />
         <Input
-          className="w-2/6 rounded-none !border-0 !border-t-2 !border-b-2"
+          className="w-10/12 rounded-none !border-0 !border-t-2 !border-b-2"
           type="text"
           inputRef={query}
           placeholder="049 or ?page=10&limit=1"
